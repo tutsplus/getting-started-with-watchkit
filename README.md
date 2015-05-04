@@ -5,11 +5,9 @@ We are now embarking on a very new and exciting opportunity as iOS developers. W
 
 ## Source Files Description
 
-The full project source can be found in this repository.
+This repository contains the source files and XCode 6 project files for the Tuts+ course [Getting Started With WatchKit][published url].
 
 ------
-
-These are source files for the Tuts+ course: Getting Started With WatchKit][published url]
 
 Available on [Tuts+](https://tutsplus.com). Teaching skills to millions worldwide.
 
