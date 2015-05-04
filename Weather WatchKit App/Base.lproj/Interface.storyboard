@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="7702" systemVersion="14D136" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="3737"/>
+    </dependencies>
+    <scenes>
+        <!--Glance Interface Controller-->
+        <scene sceneID="eyF-5h-H4m">
+            <objects>
+                <glanceController id="kme-26-WGr" customClass="WeatherGlanceInterfaceController" customModule="Weather_WatchKit_Extension">
+                    <items>
+                        <group alignment="left" id="IOr-ep-LAU">
+                            <items>
+                                <label alignment="left" verticalAlignment="center" text="Chicago, IL" id="gbS-Pe-qv8">
+                                    <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                </label>
+                            </items>
+                        </group>
+                        <group alignment="left" layout="vertical" id="Khb-lL-FO0">
+                            <items>
+                                <label alignment="center" text="68" id="Xcu-Vi-8lU">
+                                    <fontDescription key="font" type="boldSystem" pointSize="36"/>
+                                </label>
+                                <label alignment="center" text="Partly Cloudy" id="2Zl-Qq-Ii1">
+                                    <fontDescription key="font" type="boldSystem" pointSize="18"/>
+                                </label>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="txtCondition" destination="2Zl-Qq-Ii1" id="gp1-i5-DaP"/>
+                        <outlet property="txtLocation" destination="gbS-Pe-qv8" id="mHi-I9-Bd9"/>
+                        <outlet property="txtTemperature" destination="Xcu-Vi-8lU" id="5vK-cw-qnO"/>
+                    </connections>
+                </glanceController>
+            </objects>
+            <point key="canvasLocation" x="220" y="81"/>
+        </scene>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Weather_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <group width="1" alignment="left" layout="vertical" id="0Nw-Yg-2Xw">
+                            <items>
+                                <label alignment="left" text="Location:" id="Tr0-V2-gOt"/>
+                                <button width="95" height="27" alignment="right" title="Chicago, IL" id="buN-fw-tgh">
+                                    <connections>
+                                        <segue destination="Wlb-NK-Ufv" kind="push" id="Ovg-j9-DFG"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" layout="vertical" id="wEq-eI-VMK">
+                            <items>
+                                <label alignment="left" text="Current Temp:" id="bob-Fr-VeS"/>
+                                <label alignment="right" text="68" id="5Hx-lN-Mf3">
+                                    <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                </label>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" layout="vertical" id="yxe-x7-MT1">
+                            <items>
+                                <label alignment="left" text="Conditions:" id="3Vs-K5-DgI"/>
+                                <label alignment="right" text="Partly Cloudy" id="2YE-Rw-SrA">
+                                    <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                </label>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" layout="vertical" id="lRG-JY-gAP">
+                            <items>
+                                <button width="1" alignment="left" title="Refresh" id="JH6-5u-YRH">
+                                    <connections>
+                                        <action selector="clickedRefresh" destination="AgC-eL-Hgc" id="1m9-yU-Ubf"/>
+                                    </connections>
+                                </button>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="btnLocation" destination="buN-fw-tgh" id="ZE7-Ub-X88"/>
+                        <outlet property="txtCondition" destination="2YE-Rw-SrA" id="gQ0-2I-Qnx"/>
+                        <outlet property="txtTemperature" destination="5Hx-lN-Mf3" id="YH0-OY-M77"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="413" y="314.75"/>
+        </scene>
+        <!--Map Interface Controller-->
+        <scene sceneID="uHI-pu-IfI">
+            <objects>
+                <controller id="Wlb-NK-Ufv" customClass="MapInterfaceController" customModule="Weather_WatchKit_Extension">
+                    <items>
+                        <map height="100" alignment="left" id="WNZ-Qt-fn2"/>
+                    </items>
+                    <connections>
+                        <outlet property="mapLocation" destination="WNZ-Qt-fn2" id="8lF-Yu-Gx6"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="619" y="244"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="JRZ-ua-63M" kind="relationship" relationship="dynamicNotificationInterface" id="dwb-Tc-pbg"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="DZF-F9-g8R">
+            <objects>
+                <controller id="JRZ-ua-63M" customClass="NotificationController" customModule="Weather_WatchKit_Extension">
+                    <items>
+                        <label alignment="left" text="Alert Text" id="6wX-Lg-Rj6"/>
+                    </items>
+                    <connections>
+                        <outlet property="updateLabel" destination="6wX-Lg-Rj6" id="eeK-tc-ndu"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="520" y="643"/>
+        </scene>
+    </scenes>
+</document>
